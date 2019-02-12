@@ -33,7 +33,7 @@ influx.statistics.influxSendInterval=${InfluxSendInterval}
 influx.statistics.statisticsSendInterval=${StatisticsSendInterval}
 ```
 
-注：这个配置中必须都明文配置，其中：1）enabled为开关配置；2）appName和serverName为统计分组，后续讲统计记录时候详细介绍；3）influxHostUrl、influxDbName、influxUsername、influxUserPwd、influxRetentionPolicy为influxDb的配置信息；4）influxSendInterval、statisticsSendInterval分别决定统计精度和统计上送延迟控制。
+注：这个配置中必须都明文配置，其中：1）enabled为开关配置；2）appName和serverName为统计分组；3）influxHostUrl、influxDbName、influxUsername、influxUserPwd、influxRetentionPolicy为influxDb的配置信息；4）influxSendInterval、statisticsSendInterval分别决定统计精度和统计上送延迟控制。
 
 * 接下来在Spring Boot Application的上引用统计服务类：
 
@@ -49,7 +49,7 @@ long startTime = System.currentTimeMillis();
 // 执行逻辑
 ......
 
-// category和action记录操作类型，result记录操作结果，count用来记录操作计数，后续用来记录操作耗时
+// category和action记录操作类型，result记录操作结果，count用来记录操作计数，最后一个参数用来记录操作耗时
 influxStatistics.accumulate(${category}, ${action}, ${result}, ${count}, System.currentTimeMillis() - startTime);
 ```
 
