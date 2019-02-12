@@ -1,5 +1,6 @@
 # influx-statistics-spring-boot-starter
 ===================================
+
 支持jdk版本为1.7或者1.7+
 
 ### 如何使用influx统计计数
