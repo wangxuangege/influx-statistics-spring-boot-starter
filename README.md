@@ -11,7 +11,7 @@
     <dependency>
         <groupId>com.wx</groupId>
         <artifactId>influx-statistics-spring-boot-starter</artifactId>
-        <version>2.0.0</version>
+        <version>${version}</version>
     </dependency>
 ```
 
