@@ -2,6 +2,7 @@ package com.wx.influx.statistics.core;
 
 import lombok.extern.slf4j.Slf4j;
 
+import javax.annotation.PostConstruct;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Timer;
@@ -37,6 +38,7 @@ public class InfluxStatistics {
     /**
      * 初始化
      */
+    @PostConstruct
     public void init() {
         reportTimer = new Timer(true);
         reportTimer.scheduleAtFixedRate(new TimerTask() {

@@ -5,6 +5,7 @@ import org.influxdb.InfluxDB;
 import org.influxdb.dto.BatchPoints;
 import org.influxdb.dto.Point;
 
+import javax.annotation.PostConstruct;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
@@ -39,6 +40,7 @@ public class InfluxStatisticsService implements StatisticsService {
     /**
      * 初始化
      */
+    @PostConstruct
     public void init() {
         reportTimer = new Timer(true);
         reportTimer.scheduleAtFixedRate(new TimerTask() {

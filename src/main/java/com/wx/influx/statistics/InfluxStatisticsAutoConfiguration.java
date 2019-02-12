@@ -46,16 +46,4 @@ public class InfluxStatisticsAutoConfiguration {
     public InfluxStatistics influxStatistics(InfluxStatisticsConfigurationProperties influxStatisticsConfigurationProperties, StatisticsService statisticsService) {
         return new InfluxStatistics(statisticsService, influxStatisticsConfigurationProperties.getAppName(), influxStatisticsConfigurationProperties.getServerName(), influxStatisticsConfigurationProperties.getStatisticsSendInterval());
     }
-
-    @PostConstruct
-    public void init() {
-        Object statisticsService = applicationContext.getBean(INFLUX_STATISTICS_SERVICE_NAME);
-        if (statisticsService instanceof InfluxStatisticsService) {
-            ((InfluxStatisticsService) statisticsService).init();
-        }
-        Object influxStatistics = applicationContext.getBean(STATISTICS_NAME);
-        if (influxStatistics instanceof InfluxStatistics) {
-            ((InfluxStatistics) influxStatistics).init();
-        }
-    }
 }
