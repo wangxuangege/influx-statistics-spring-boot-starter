@@ -1,5 +1,5 @@
-# influx-statistics-spring-boot-starter
-===================================
+influx-statistics-spring-boot-starter
+======================================================================
 
 支持jdk版本为1.7或者1.7+
 
@@ -52,3 +52,21 @@ long startTime = System.currentTimeMillis();
 // category和action记录操作类型，result记录操作结果，count用来记录操作计数，后续用来记录操作耗时
 influxStatistics.accumulate(${category}, ${action}, ${result}, ${count}, System.currentTimeMillis() - startTime);
 ```
+
+### influx统计数据（可以使用grafana图标组件展示）
+
+* influx记录在statistics中，记录行数据格式如下：
+
+| 字段   |      描述      |
+|----------|-------------|
+| server | 机器名称 |
+| event | 由多个字段拼接而成，包括appName、category、action、result |
+| app | 应用名称 |
+| category | 类别 |
+| action | 动作行为 |
+| result | 结果 |
+| count | 计数 |
+| min | 耗时最小值，某一个上送influx周期内记录耗时的最小值 |
+| max | 耗时最大值，某一个上送influx周期内记录耗时的最大值 |
+| total | 总共计数，某一个上送influx周期内记录总数 |
+| average | 耗时平均值，某一个上送influx周期内记录耗时的平均值 |
