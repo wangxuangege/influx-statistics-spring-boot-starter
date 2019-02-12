@@ -5,16 +5,12 @@ import com.wx.influx.statistics.core.InfluxStatisticsService;
 import com.wx.influx.statistics.core.StatisticsService;
 import org.influxdb.InfluxDB;
 import org.influxdb.InfluxDBFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import javax.annotation.PostConstruct;
 
 /**
  * @author xinquan.huangxq
@@ -27,9 +23,6 @@ public class InfluxStatisticsAutoConfiguration {
     private static final String INFLUX_STATISTICS_SERVICE_NAME = "influxStatisticsService";
 
     private static final String STATISTICS_NAME = "influxStatistics";
-
-    @Autowired
-    private ApplicationContext applicationContext;
 
     @Bean(name = INFLUX_STATISTICS_SERVICE_NAME)
     @ConditionalOnMissingBean
