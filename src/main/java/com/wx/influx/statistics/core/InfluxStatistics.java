@@ -24,7 +24,7 @@ public class InfluxStatistics {
 
     private final int sendInterval;
 
-    private Map<String, StatData> map = new ConcurrentHashMap<String, StatData>();
+    private ConcurrentHashMap<String, StatData> map = new ConcurrentHashMap<>();
 
     private Timer reportTimer;
 
@@ -83,8 +83,10 @@ public class InfluxStatistics {
             String key = String.format("%s.%s.%s.%s", appName, category, action, result);
             StatData c = map.get(key);
             if (c == null) {
-                c = new StatData(key, appName, category, action, result, new ReentrantLock());
-                map.put(key, c);
+                StatData v = map.putIfAbsent(key, new StatData(key, appName, category, action, result, new ReentrantLock()));
+                if (v == null) {
+                    c = map.get(key);
+                }
             }
             c.accumulate(count, cost);
         } catch (Exception e) {

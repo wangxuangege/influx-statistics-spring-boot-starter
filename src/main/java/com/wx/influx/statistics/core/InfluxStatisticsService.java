@@ -24,7 +24,7 @@ public class InfluxStatisticsService implements StatisticsService {
 
     private final int sendInterval;
 
-    private List<Point> points = Collections.synchronizedList(new ArrayList<Point>());
+    private List<Point> points = new ArrayList<>();
 
     private Timer reportTimer;
 
