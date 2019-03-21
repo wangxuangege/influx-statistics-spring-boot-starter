@@ -9,7 +9,7 @@
         <version>7</version>
     </parent>
 
-    <groupId>com.wx</groupId>
+    <groupId>com.github.wangxuangege</groupId>
     <name>influx-statistics-spring-boot-starter</name>
     <artifactId>influx-statistics-spring-boot-starter</artifactId>
     <version>1.0</version>
