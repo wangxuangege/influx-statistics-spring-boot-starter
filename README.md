@@ -5,14 +5,14 @@ influx-statistics-spring-boot-starter
 
 ### 如何使用influx统计计数
 
-* 添加依赖:（请打包后上传到本地或者私有仓库）
+* 添加依赖:
 
 ```xml
-    <dependency>
-        <groupId>com.wx</groupId>
-        <artifactId>influx-statistics-spring-boot-starter</artifactId>
-        <version>${version}</version>
-    </dependency>
+   <dependency>
+     <groupId>com.github.wangxuangege</groupId>
+     <artifactId>influx-statistics-spring-boot-starter</artifactId>
+     <version>1.0</version>
+   </dependency>
 ```
 
 * 在application.properties添加统计的相关配置信息，样例配置如下:
