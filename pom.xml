@@ -6,7 +6,7 @@
     <groupId>com.github.wangxuangege</groupId>
     <name>influx-statistics-spring-boot-starter</name>
     <artifactId>influx-statistics-spring-boot-starter</artifactId>
-    <version>1.0</version>
+    <version>1.1</version>
     <packaging>jar</packaging>
 
     <description>InfluxDB Store Statistics Data Spring Boot Starter</description>

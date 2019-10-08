@@ -83,9 +83,14 @@ public class InfluxStatistics {
             String key = String.format("%s.%s.%s.%s", appName, category, action, result);
             StatData c = map.get(key);
             if (c == null) {
-                StatData v = map.putIfAbsent(key, new StatData(key, appName, category, action, result, new ReentrantLock()));
+                StatData n = new StatData(key, appName, category, action, result, new ReentrantLock());
+                StatData v = map.putIfAbsent(key, n);
                 if (v == null) {
-                    c = map.get(key);
+                    // put成功，不存在该key
+                    c = n;
+                } else {
+                    // put失败,那么存在该key
+                    c = v;
                 }
             }
             c.accumulate(count, cost);
